@@ -15,3 +15,11 @@ buildNumber.properties
 /.idea/
 /.idea/sonarlint/
 /target
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar

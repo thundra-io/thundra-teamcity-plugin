@@ -1,6 +1,6 @@
 initscript {
     repositories {
-        mavenLocal()
+        mavenCentral()
     }
 
     dependencies {
@@ -12,13 +12,10 @@ allprojects {
     apply plugin: io.thundra.agent.gradle.ThundraTestPlugin
 
     repositories {
-        mavenLocal()
+        mavenCentral()
     }
 
-    thundra {
-
-    jvmArgsParam = [
-            "-javaagent:${thundraAgentPath}"
-            ]
-        }
+thundra {
+    agentPath = "${thundraAgentPath}"
+    }
 }

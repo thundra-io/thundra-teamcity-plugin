@@ -14,3 +14,4 @@ buildNumber.properties
 *.iml
 /.idea/
 /.idea/sonarlint/
+/target

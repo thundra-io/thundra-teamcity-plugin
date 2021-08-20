@@ -1,0 +1,7 @@
+io/thundra/foresight/teamcity/plugin/ThundraForesightAgentLifeCycleAdapter.class
+io/thundra/foresight/teamcity/plugin/utils/RunTypeUtils.class
+io/thundra/foresight/teamcity/plugin/utils/GradleBuildForesightInitializer.class
+io/thundra/foresight/teamcity/plugin/BuildToolForesightInitializerFactory.class
+io/thundra/foresight/teamcity/plugin/utils/ThundraUtils.class
+io/thundra/foresight/teamcity/plugin/utils/MavenBuildForesightInitializer.class
+io/thundra/foresight/teamcity/plugin/utils/IBuildToolForesightInitializer.class

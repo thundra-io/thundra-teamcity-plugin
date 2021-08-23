@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:schemas-jetbrains-com:teamcity-plugin-v1-xml">
+    <info>
+        <name>thundra-teamcity-plugin</name>
+        <display-name>Thundra Foresight Integration</display-name>
+        <version>@Version@</version>
+        <description>Automatic initializer for Thundra Foresight</description>
+        <download-url>Plugin download URL</download-url>
+        <email>yusuf@thundra.io</email>
+        <vendor>
+            <name>@VendorName@</name>
+            <url>@VendorURL@</url>
+            <logo>https://www.thundra.io/hubfs/New%20Design%20Website%20-%202020/Thundra%20Logo/Thundra-Logo-New.svg
+            </logo>
+        </vendor>
+    </info>
+    <deployment use-separate-classloader="true"/>
+</teamcity-plugin>

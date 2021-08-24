@@ -12,8 +12,8 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.FORESIGHT_API_KEY;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.FORESIGHT_PROJECT_KEY;
+import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
+import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_APIKEY;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_REST_BASE_URL;
 
 /**
@@ -67,13 +67,13 @@ public class MavenBuildForesightInitializer implements IBuildToolForesightInitia
 
     @Override
     public String getAgentPath(BuildRunnerContext runner, String agentPath) {
-        String projectKey = runner.getConfigParameters().get(FORESIGHT_PROJECT_KEY);
-        String apiKey = runner.getConfigParameters().get(FORESIGHT_API_KEY);
-        String thundraRestBaseUrl = runner.getConfigParameters().get(THUNDRA_REST_BASE_URL);
+        String projectId = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_AGENT_TEST_PROJECT_ID);
+        String apiKey = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_APIKEY);
+        String thundraRestBaseUrl = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_REST_BASE_URL);
         String restBaseUrlParam = StringUtils.isNotEmpty(thundraRestBaseUrl) ? " -Dthundra.agent.report.rest.baseurl="
                 + thundraRestBaseUrl : "";
         agentPath = agentPath + restBaseUrlParam;
-        agentPath += (String.format(" -Dthundra.apiKey=%s -Dthundra.agent.test.project.id=%s", apiKey, projectKey));
+        agentPath += (String.format(" -Dthundra.apiKey=%s -Dthundra.agent.test.project.id=%s", apiKey, projectId));
 
         return agentPath;
     }

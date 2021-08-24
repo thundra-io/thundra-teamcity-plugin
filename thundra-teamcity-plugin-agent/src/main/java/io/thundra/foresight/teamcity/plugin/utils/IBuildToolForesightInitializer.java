@@ -1,12 +1,10 @@
 package io.thundra.foresight.teamcity.plugin.utils;
 
 import jetbrains.buildServer.agent.BuildRunnerContext;
-import org.springframework.stereotype.Component;
 
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.Map;
-
+/**
+ * @author yusuferdem
+ */
 public interface IBuildToolForesightInitializer {
 
     void initialize(BuildRunnerContext runner, String agentPath);

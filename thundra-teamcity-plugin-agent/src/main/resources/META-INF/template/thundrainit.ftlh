@@ -4,7 +4,7 @@ initscript {
     }
 
     dependencies {
-        classpath 'io.thundra.agent:thundra-gradle-test-plugin:${thundraGradlePluginVersion}'
+        classpath 'io.thundra.agent:thundra-gradle-test-plugin:${THUNDRA_GRADLE_PLUGIN_VERSION}'
     }
 }
 
@@ -16,6 +16,6 @@ allprojects {
     }
 
     thundra {
-        agentPath = "${thundraAgentPath}"
+        agentPath = "${THUNDRA_AGENT_PATH}"
     }
 }

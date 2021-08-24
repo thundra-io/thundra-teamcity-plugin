@@ -27,6 +27,8 @@ import java.nio.file.StandardCopyOption;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.LATEST;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_BOOTSTRAP_JAR;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_METADATA;
+import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
+import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_APIKEY;
 
 /**
  * @author yusuferdem
@@ -41,6 +43,12 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
 
     @Override
     public void beforeRunnerStart(@NotNull BuildRunnerContext runner) {
+        String thundraApikey = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_APIKEY);
+        String projectId =
+                runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_AGENT_TEST_PROJECT_ID);
+        if (StringUtils.isEmpty(thundraApikey) || StringUtils.isEmpty(projectId)) {
+            return;
+        }
         IBuildToolForesightInitializer initializer =
                 buildToolForesightInitializerFactory.getInitializer(runner.getRunType());
         if (ObjectUtils.isNotEmpty(initializer)) {

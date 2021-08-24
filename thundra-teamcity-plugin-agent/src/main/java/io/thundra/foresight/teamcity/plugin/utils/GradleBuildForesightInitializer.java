@@ -22,18 +22,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.FORESIGHT_API_KEY;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.FORESIGHT_PROJECT_KEY;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.GRADLE_CMD_PARAMS;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.GRADLE_PLUGIN_METADATA;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRAINIT_FTLH;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRAINIT_GRADLE_FILE;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_PATH;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_REPORT_REST_BASEURL;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_APIKEY;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_GRADLE_PLUGIN_VERSION;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_REST_BASE_URL;
 
 /**
  * @author yusuferdem
@@ -44,6 +40,12 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
     @Override
     public void initialize(BuildRunnerContext runner, String agentPath) {
         try {
+            String thundraApikey = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_APIKEY);
+            String projectId =
+                    runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_AGENT_TEST_PROJECT_ID);
+            if (StringUtils.isEmpty(thundraApikey) || StringUtils.isEmpty(projectId)) {
+                return;
+            }
             File workingDirectory = runner.getWorkingDirectory();
 
             final String thundraGradlePluginVersion = getPluginVersion();
@@ -51,10 +53,10 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
 
             final Configuration cfg = getFreemarkerConfiguration();
 
-            setSystemParameters(runner);
             final Map<String, String> root = new HashMap<>();
             root.put(THUNDRA_GRADLE_PLUGIN_VERSION,
-                    runner.getConfigParameters().getOrDefault(THUNDRA_GRADLE_PLUGIN_VERSION, thundraGradlePluginVersion));
+                    runner.getBuildParameters().getEnvironmentVariables().
+                            getOrDefault(THUNDRA_GRADLE_PLUGIN_VERSION, thundraGradlePluginVersion));
             root.put(THUNDRA_AGENT_PATH, agentPath);
 
             final Template template = cfg.getTemplate(THUNDRAINIT_FTLH);
@@ -78,18 +80,6 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
         cfg.setWrapUncheckedExceptions(true);
         cfg.setFallbackOnNullLoopVariable(false);
         return cfg;
-    }
-
-    private void setSystemParameters(BuildRunnerContext runner) {
-        String projectKey = runner.getConfigParameters().get(FORESIGHT_PROJECT_KEY);
-        String apiKey = runner.getConfigParameters().get(FORESIGHT_API_KEY);
-        String thundraRestUrl = runner.getConfigParameters().get(THUNDRA_REST_BASE_URL);
-
-        System.setProperty(THUNDRA_APIKEY, apiKey);
-        System.setProperty(THUNDRA_AGENT_TEST_PROJECT_ID, projectKey);
-        if (StringUtils.isNotEmpty(thundraRestUrl)) {
-            System.setProperty(THUNDRA_AGENT_REPORT_REST_BASEURL, thundraRestUrl);
-        }
     }
 
     @Override

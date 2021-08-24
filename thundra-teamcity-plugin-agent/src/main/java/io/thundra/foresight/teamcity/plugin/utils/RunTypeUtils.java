@@ -1,5 +1,8 @@
 package io.thundra.foresight.teamcity.plugin.utils;
 
+/**
+ * @author yusuferdem
+ */
 public  class RunTypeUtils {
     public static final String GRADLE_RUNNER = "gradle-runner";
     public static final String MAVEN_RUNNER = "Maven2";

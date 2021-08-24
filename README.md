@@ -19,5 +19,5 @@ Once you get the Thundra API Key, make sure to set it as a secret.
 | ---                   | ---               | ---
 | THUNDRA_APIKEY                | Required          | Thundra API Key
 | THUNDRA_AGENT_TEST_PROJECT_ID            | Required          | Your project id from Thundra Foresight. Will be used to filter and classify your testruns.
-| thundraGradlePluginVersion        | Optional          | In the plugin itself, we use a Gradle plugin to run your tests. This plugin is released and versioned separately from the teamcity plugin. Hence, if there is some breaking change or specific version you want to use, you can use it by defining this parameter. You can see all the available version of our plugin [here](https://search.maven.org/artifact/io.thundra.agent/thundra-agent-gradle-test-instrumentation).
+| THUNDRA_GRADLE_PLUGIN_VERSION        | Optional          | In the plugin itself, we use a Gradle plugin to run your tests. This plugin is released and versioned separately from the teamcity plugin. Hence, if there is some breaking change or specific version you want to use, you can use it by defining this parameter. You can see all the available version of our plugin [here](https://search.maven.org/artifact/io.thundra.agent/thundra-agent-gradle-test-instrumentation).
 

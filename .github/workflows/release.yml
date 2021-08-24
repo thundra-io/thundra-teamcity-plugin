@@ -33,10 +33,6 @@ jobs:
               {
                 "id": "thundra-releases",
                 "url": "https://repo.thundra.io/content/repositories/thundra-releases"
-              },
-                "snapshots": {
-                  "enabled": "false"
-                }
               }
             ]
           servers: >-

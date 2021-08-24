@@ -22,6 +22,16 @@
             <id>JetBrains</id>
             <url>https://download.jetbrains.com/teamcity-repository</url>
         </repository>
+        <repository>
+            <id>thundra-releases</id>
+            <name>Thundra Releases</name>
+            <url>https://repo.thundra.io/content/repositories/thundra-releases</url>
+        </repository>
+        <repository>
+            <id>thundra-snapshots</id>
+            <name>Thundra Releases</name>
+            <url>https://repo.thundra.io/content/repositories/thundra-snapshots</url>
+        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>

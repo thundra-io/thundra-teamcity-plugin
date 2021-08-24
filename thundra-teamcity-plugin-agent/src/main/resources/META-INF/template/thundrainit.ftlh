@@ -15,7 +15,7 @@ allprojects {
         mavenCentral()
     }
 
-thundra {
-    agentPath = "${thundraAgentPath}"
+    thundra {
+        agentPath = "${thundraAgentPath}"
     }
 }

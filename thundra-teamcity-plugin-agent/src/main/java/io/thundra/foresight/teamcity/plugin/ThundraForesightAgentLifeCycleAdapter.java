@@ -9,6 +9,8 @@ import jetbrains.buildServer.agent.BuildRunnerContext;
 import jetbrains.buildServer.util.EventDispatcher;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import javax.xml.stream.XMLInputFactory;
@@ -21,14 +23,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
-import java.util.logging.Logger;
 
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.LATEST;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_BOOTSTRAP_JAR;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_METADATA;
 
+/**
+ * @author yusuferdem
+ */
 public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter {
-    private static Logger log = Logger.getLogger("jetbrains.buildServer.AGENT");
+    private static final Logger log = LogManager.getLogger(ThundraForesightAgentLifeCycleAdapter.class);
 
     private final ExtensionHolder extensionHolder;
     private final BuildToolForesightInitializerFactory buildToolForesightInitializerFactory;
@@ -75,11 +79,9 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
         BufferedInputStream in = new BufferedInputStream(new URL(THUNDRA_AGENT_METADATA).openStream());
         XMLStreamReader reader1 = XMLInputFactory.newInstance().createXMLStreamReader(in);
         while (reader1.hasNext()) {
-            if (reader1.next() == XMLStreamConstants.START_ELEMENT) {
-                if (reader1.getLocalName().equals(LATEST)) {
-                    latestAgentVersion = reader1.getElementText();
-                    break;
-                }
+            if (reader1.next() == XMLStreamConstants.START_ELEMENT && reader1.getLocalName().equals(LATEST)) {
+                latestAgentVersion = reader1.getElementText();
+                break;
             }
         }
         log.info("Latest Agent Version : " + latestAgentVersion);
@@ -88,10 +90,10 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
                     new URL(String.format("https://repo.thundra.io/service/local/repositories/thundra-releases" +
                             "/content/io/thundra/agent/thundra-agent-bootstrap/%s/thundra-agent-bootstrap-%s.jar",
                             latestAgentVersion, latestAgentVersion)).openStream());
-            String agentPath = agentDirPath + THUNDRA_AGENT_BOOTSTRAP_JAR;
-            File file = new File(agentPath);
+            String jarPath = agentDirPath + THUNDRA_AGENT_BOOTSTRAP_JAR;
+            File file = new File(jarPath);
             Files.copy(agentStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            this.agentPath = agentPath;
+            this.agentPath = jarPath;
         }
         log.info("Thundra Foresight Instrumentation started");
 

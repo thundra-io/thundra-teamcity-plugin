@@ -16,13 +16,19 @@ import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.FORESIGHT_
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.FORESIGHT_PROJECT_KEY;
 import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_REST_BASE_URL;
 
+/**
+ * @author yusuferdem
+ */
 public class MavenBuildForesightInitializer implements IBuildToolForesightInitializer {
     private static final Logger logger = LogManager.getLogger(MavenBuildForesightInitializer.class);
 
     @Override
     public void initialize(BuildRunnerContext runner, String agentPath) {
         File[] matchingFiles = runner.getWorkingDirectory().listFiles((dir, name) -> name.equals("pom.xml"));
-
+        if (matchingFiles == null) {
+            logger.error("<Error> pom.xml couldn't find for instrumentation ...");
+            return;
+        }
         String[] pomFiles = Arrays.stream(matchingFiles).map(File::getAbsolutePath).toArray(String[]::new);
 
         logger.info("<Execute> Executing maven instrumentation ...");

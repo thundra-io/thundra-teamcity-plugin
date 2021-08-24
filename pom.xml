@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
     <properties>
         <teamcity-version>2021.1</teamcity-version>
+        <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     </properties>
     <repositories>
         <repository>
@@ -31,6 +32,32 @@
                     <!-- <teamcityDir>/path/to/tc/distro</teamcityDir> -->
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven.release.plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>1.8.1</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <releaseProfiles>releases</releaseProfiles>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -50,4 +77,36 @@
         <module>thundra-teamcity-plugin-agent</module>
         <module>build</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <distributionManagement>
+                <repository>
+                    <id>thundra-releases</id>
+                    <name>Thundra Releases</name>
+                    <url>https://repo.thundra.io/content/repositories/thundra-releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>thundra-snapshots</id>
+                    <name>Thundra Snapshots</name>
+                    <url>https://repo.thundra.io/content/repositories/thundra-snapshots/</url>
+                    <uniqueVersion>true</uniqueVersion>
+                </snapshotRepository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 </project>

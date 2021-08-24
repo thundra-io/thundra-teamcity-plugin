@@ -4,7 +4,6 @@ package io.thundra.foresight.teamcity.plugin.utils;
  * @author yusuferdem
  */
 public class ThundraUtils {
-    public static final String THUNDRA_AGENT_REPORT_REST_BASEURL = "thundra.agent.report.rest.baseurl";
     public static final String THUNDRA_AGENT_TEST_PROJECT_ID = "THUNDRA_AGENT_TEST_PROJECT_ID";
     public static final String THUNDRA_APIKEY = "THUNDRA_APIKEY";
     public static final String THUNDRA_REST_BASE_URL = "THUNDRA_AGENT_REPORT_REST_BASEURL";

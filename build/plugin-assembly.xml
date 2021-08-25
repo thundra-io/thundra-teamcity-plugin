@@ -15,23 +15,4 @@
             <outputDirectory>agent</outputDirectory>
         </file>
     </files>
-    <moduleSets>
-        <moduleSet>
-            <useAllReactorProjects>true</useAllReactorProjects>
-            <includes>
-                <include>io.thundra.utils:thundra-teamcity-plugin-server</include>
-            </includes>
-            <binaries>
-                <outputDirectory>server</outputDirectory>
-                <unpack>false</unpack>
-                <dependencySets>
-                    <dependencySet>
-                        <includes>
-                            <include>*</include>
-                        </includes>
-                    </dependencySet>
-                </dependencySets>
-            </binaries>
-        </moduleSet>
-    </moduleSets>
 </assembly>

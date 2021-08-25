@@ -22,11 +22,6 @@
             <artifactId>thundra-teamcity-plugin-agent</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.thundra.utils</groupId>
-            <artifactId>thundra-teamcity-plugin-server</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

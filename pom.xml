@@ -110,7 +110,6 @@
         </pluginManagement>
     </build>
     <modules>
-        <module>thundra-teamcity-plugin-server</module>
         <module>thundra-teamcity-plugin-agent</module>
         <module>build</module>
     </modules>

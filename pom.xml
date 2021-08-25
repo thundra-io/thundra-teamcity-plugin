@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.thundra.utils</groupId>
     <artifactId>thundra-teamcity-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <scm>
         <connection>scm:git:https://${GITHUB_TOKEN}@github.com/thundra-io/thundra-teamcity-plugin.git</connection>
         <developerConnection>scm:git:https://${GITHUB_TOKEN}@github.com/thundra-io/thundra-teamcity-plugin.git</developerConnection>
         <url>https://github.com/thundra-io/thundra-teamcity-plugin</url>
-        <tag>v1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
     <properties>
         <teamcity-version>2021.1</teamcity-version>

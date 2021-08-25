@@ -34,7 +34,6 @@
     <properties>
         <teamcity-version>2021.1</teamcity-version>
         <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-        <project.version>1.0.0-SNAPSHOT</project.version>
     </properties>
     <repositories>
         <repository>

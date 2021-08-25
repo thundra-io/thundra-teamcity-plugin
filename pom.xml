@@ -4,9 +4,9 @@
     <groupId>io.thundra.utils</groupId>
     <artifactId>thundra-teamcity-plugin</artifactId>
     <version>1.0.1-SNAPSHOT</version>
-    <name>Thundra Agent - Teamcity Integration</name>
+    <name>TeamCity Integration for Thundra Foresight</name>
     <description>
-        Thundra Agent - Teamcity Integration for foresight application
+        TeamCity Integration for Thundra Foresight
     </description>
     <url>https://github.com/thundra-io/thundra-teamcity-plugin</url>
     <packaging>pom</packaging>

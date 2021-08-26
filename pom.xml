@@ -110,7 +110,7 @@
     </build>
     <modules>
         <module>thundra-teamcity-plugin-agent</module>
-        <module>thundra-teamcity-plugin</module>
+        <module>teamcity-plugin-thundra</module>
     </modules>
 
     <profiles>

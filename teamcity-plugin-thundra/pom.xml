@@ -6,7 +6,7 @@
         <groupId>io.thundra.utils</groupId>
         <version>1.0.4-SNAPSHOT</version>
     </parent>
-    <artifactId>thundra-teamcity-plugin</artifactId>
+    <artifactId>teamcity-plugin-thundra</artifactId>
     <packaging>pom</packaging>
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>

@@ -4,7 +4,7 @@
     <parent>
         <artifactId>thundra-teamcity-plugin-parent</artifactId>
         <groupId>io.thundra.plugin</groupId>
-        <version>1.0.2</version>
+        <version>1.0.3-SNAPSHOT</version>
     </parent>
     <artifactId>thundra-teamcity-plugin-agent</artifactId>
     <packaging>jar</packaging>

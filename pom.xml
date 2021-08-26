@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.thundra.plugin</groupId>
     <artifactId>thundra-teamcity-plugin-parent</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <name>TeamCity Integration for Thundra Foresight</name>
     <description>
         TeamCity Integration for Thundra Foresight
@@ -14,7 +14,7 @@
         <connection>scm:git:https://${GITHUB_TOKEN}@github.com/thundra-io/thundra-teamcity-plugin.git</connection>
         <developerConnection>scm:git:https://${GITHUB_TOKEN}@github.com/thundra-io/thundra-teamcity-plugin.git</developerConnection>
         <url>https://github.com/thundra-io/thundra-teamcity-plugin</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.2</tag>
     </scm>
     <licenses>
         <license>

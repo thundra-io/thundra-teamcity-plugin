@@ -135,11 +135,11 @@
                                 </goals>
                                 <configuration>
                                     <includes>
-                                        <include>io/thundra/foresight/teamcity/plugin/README.md</include>
+                                        <include>io/thundra/plugin/teamcity/foresight/README.md</include>
                                     </includes>
                                     <excludes>
-                                        <exclude>io/thundra/foresight/teamcity/plugin/**/*.java</exclude>
-                                        <exclude>io/thundra/foresight/teamcity/plugin/*.java</exclude>
+                                        <exclude>io/thundra/plugin/teamcity/foresight/**/*.java</exclude>
+                                        <exclude>io/thundra/plugin/teamcity/foresight/*.java</exclude>
                                     </excludes>
                                 </configuration>
                             </execution>

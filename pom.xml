@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.thundra.utils</groupId>
-    <artifactId>thundra-teamcity-plugin-parent</artifactId>
+    <artifactId>thundra-teamcity-plugin</artifactId>
     <version>1.0.4-SNAPSHOT</version>
     <name>TeamCity Integration for Thundra Foresight</name>
     <description>
@@ -110,7 +110,7 @@
     </build>
     <modules>
         <module>thundra-teamcity-plugin-agent</module>
-        <module>teamcity-plugin-thundra</module>
+        <module>build</module>
     </modules>
 
     <profiles>

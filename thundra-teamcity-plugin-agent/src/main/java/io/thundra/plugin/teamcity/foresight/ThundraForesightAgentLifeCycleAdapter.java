@@ -1,6 +1,6 @@
-package io.thundra.foresight.teamcity.plugin;
+package io.thundra.plugin.teamcity.foresight;
 
-import io.thundra.foresight.teamcity.plugin.utils.IBuildToolForesightInitializer;
+import io.thundra.plugin.teamcity.foresight.utils.IBuildToolForesightInitializer;
 import jetbrains.buildServer.ExtensionHolder;
 import jetbrains.buildServer.agent.AgentLifeCycleAdapter;
 import jetbrains.buildServer.agent.AgentLifeCycleListener;
@@ -24,11 +24,11 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.LATEST;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_BOOTSTRAP_JAR;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_METADATA;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_APIKEY;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.LATEST;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_AGENT_BOOTSTRAP_JAR;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_AGENT_METADATA;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_APIKEY;
 
 /**
  * @author yusuferdem

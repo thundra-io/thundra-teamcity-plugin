@@ -1,4 +1,4 @@
-package io.thundra.foresight.teamcity.plugin.utils;
+package io.thundra.plugin.teamcity.foresight.utils;
 
 /**
  * @author yusuferdem

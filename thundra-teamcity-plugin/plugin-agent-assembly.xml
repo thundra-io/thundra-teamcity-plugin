@@ -15,7 +15,7 @@
         <moduleSet>
             <useAllReactorProjects>true</useAllReactorProjects>
             <includes>
-                <include>io.thundra.utils:thundra-teamcity-plugin-agent</include>
+                <include>io.thundra.plugin:thundra-teamcity-plugin-agent</include>
             </includes>
             <binaries>
                 <outputDirectory>lib</outputDirectory>

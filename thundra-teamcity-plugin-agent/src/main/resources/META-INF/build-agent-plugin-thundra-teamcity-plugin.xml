@@ -4,9 +4,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
        default-autowire="constructor">
-    <bean class="io.thundra.foresight.teamcity.plugin.ThundraForesightAgentLifeCycleAdapter"/>
-    <bean class="io.thundra.foresight.teamcity.plugin.utils.MavenBuildForesightInitializer"/>
-    <bean class="io.thundra.foresight.teamcity.plugin.utils.GradleBuildForesightInitializer"/>
-    <bean class="io.thundra.foresight.teamcity.plugin.BuildToolForesightInitializerFactory"/>
+    <bean class="io.thundra.plugin.teamcity.foresight.ThundraForesightAgentLifeCycleAdapter"/>
+    <bean class="io.thundra.plugin.teamcity.foresight.utils.MavenBuildForesightInitializer"/>
+    <bean class="io.thundra.plugin.teamcity.foresight.utils.GradleBuildForesightInitializer"/>
+    <bean class="io.thundra.plugin.teamcity.foresight.BuildToolForesightInitializerFactory"/>
 
 </beans>

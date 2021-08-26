@@ -1,9 +1,9 @@
-package io.thundra.foresight.teamcity.plugin;
+package io.thundra.plugin.teamcity.foresight;
 
-import io.thundra.foresight.teamcity.plugin.utils.GradleBuildForesightInitializer;
-import io.thundra.foresight.teamcity.plugin.utils.IBuildToolForesightInitializer;
-import io.thundra.foresight.teamcity.plugin.utils.MavenBuildForesightInitializer;
-import io.thundra.foresight.teamcity.plugin.utils.RunTypeUtils;
+import io.thundra.plugin.teamcity.foresight.utils.GradleBuildForesightInitializer;
+import io.thundra.plugin.teamcity.foresight.utils.IBuildToolForesightInitializer;
+import io.thundra.plugin.teamcity.foresight.utils.MavenBuildForesightInitializer;
+import io.thundra.plugin.teamcity.foresight.utils.RunTypeUtils;
 
 /**
  * @author yusuferdem

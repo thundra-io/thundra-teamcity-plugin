@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>thundra-teamcity-plugin-parent</artifactId>
-        <groupId>io.thundra.utils</groupId>
-        <version>1.0.7-SNAPSHOT</version>
+        <groupId>io.thundra.plugin</groupId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>thundra-teamcity-plugin</artifactId>
     <packaging>pom</packaging>
@@ -18,7 +18,7 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>io.thundra.utils</groupId>
+            <groupId>io.thundra.plugin</groupId>
             <artifactId>thundra-teamcity-plugin-agent</artifactId>
             <version>${project.version}</version>
         </dependency>

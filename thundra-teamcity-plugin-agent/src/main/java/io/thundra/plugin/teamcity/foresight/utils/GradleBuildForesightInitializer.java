@@ -1,4 +1,4 @@
-package io.thundra.foresight.teamcity.plugin.utils;
+package io.thundra.plugin.teamcity.foresight.utils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -22,14 +22,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.GRADLE_CMD_PARAMS;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.GRADLE_PLUGIN_METADATA;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRAINIT_FTLH;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRAINIT_GRADLE_FILE;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_PATH;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_APIKEY;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_GRADLE_PLUGIN_VERSION;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.GRADLE_CMD_PARAMS;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.GRADLE_PLUGIN_METADATA;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRAINIT_FTLH;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRAINIT_GRADLE_FILE;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_AGENT_PATH;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_APIKEY;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_GRADLE_PLUGIN_VERSION;
 
 /**
  * @author yusuferdem

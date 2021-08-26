@@ -1,4 +1,4 @@
-package io.thundra.foresight.teamcity.plugin.utils;
+package io.thundra.plugin.teamcity.foresight.utils;
 
 import io.thundra.agent.maven.test.instrumentation.checker.FailsafeChecker;
 import io.thundra.agent.maven.test.instrumentation.checker.SurefireChecker;
@@ -12,9 +12,9 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_APIKEY;
-import static io.thundra.foresight.teamcity.plugin.utils.ThundraUtils.THUNDRA_REST_BASE_URL;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_AGENT_TEST_PROJECT_ID;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_APIKEY;
+import static io.thundra.plugin.teamcity.foresight.utils.ThundraUtils.THUNDRA_REST_BASE_URL;
 
 /**
  * @author yusuferdem

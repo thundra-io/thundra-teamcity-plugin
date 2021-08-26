@@ -50,13 +50,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.jetbrains.teamcity</groupId>
                 <artifactId>teamcity-sdk-maven-plugin</artifactId>
                 <version>0.4.1</version>
@@ -117,7 +110,7 @@
     </build>
     <modules>
         <module>thundra-teamcity-plugin-agent</module>
-        <module>build</module>
+        <module>thundra-teamcity-plugin</module>
     </modules>
 
     <profiles>

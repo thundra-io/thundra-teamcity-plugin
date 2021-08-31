@@ -6,7 +6,7 @@ Information about available parameters is listed [below](#parameters).
 
 The required parameters are the Thundra API Key and the Thundra Project ID, which can be obtained from [foresight.thundra.io](https://foresight.thundra.io/). 
 You need to add Environment Variables to your Teamcity Project settings or Build Configuration settings. You can access settings screen with this ways,
-- **Click Project Name -> Edit Project Settings -> Parameters -> Add Parameter -> Environment Variables**
+- **Click Project Name -> Edit Project Settings -> Parameters -> Add Parameter -> Environment Variables (Recommended)** if you choose this option, all build configurations under this project will send test informations to Thundra Foresight.
 - **Click Build Configuration -> Edit Configuration Settings -> Parameters -> Add Parameter -> Environment Variables**
 
 You can learn more about Thundra at [thundra.io](https://thundra.io)

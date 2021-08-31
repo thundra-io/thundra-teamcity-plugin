@@ -60,7 +60,8 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
             root.put(THUNDRA_AGENT_PATH, agentPath);
 
             final Template template = cfg.getTemplate(THUNDRAINIT_FTLH);
-            String initScriptName = initScriptPath + THUNDRAINIT_GRADLE_FILE;
+            String initScriptName = initScriptPath + File.separator
+                    +  THUNDRAINIT_GRADLE_FILE;
             final Writer fileOut = new FileWriter(initScriptName);
             template.process(root, fileOut);
             addInitScriptParameters(runner, initScriptName);

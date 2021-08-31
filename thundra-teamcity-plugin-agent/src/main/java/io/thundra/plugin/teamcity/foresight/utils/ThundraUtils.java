@@ -8,7 +8,7 @@ public class ThundraUtils {
     public static final String THUNDRA_APIKEY = "THUNDRA_APIKEY";
     public static final String THUNDRA_REST_BASE_URL = "THUNDRA_AGENT_REPORT_REST_BASEURL";
     public static final String THUNDRAINIT_FTLH = "thundrainit.ftlh";
-    public static final String THUNDRAINIT_GRADLE_FILE = "/thundrainit.gradle";
+    public static final String THUNDRAINIT_GRADLE_FILE = "thundrainit.gradle";
     public static final String THUNDRA_AGENT_PATH = "THUNDRA_AGENT_PATH";
     public static final String THUNDRA_GRADLE_PLUGIN_VERSION = "THUNDRA_GRADLE_PLUGIN_VERSION";
     public static final String GRADLE_CMD_PARAMS = "ui.gradleRunner.additional.gradle.cmd.params";

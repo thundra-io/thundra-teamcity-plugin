@@ -4,12 +4,12 @@ initscript {
     }
 
     dependencies {
-        classpath 'io.thundra.agent:thundra-gradle-test-plugin:${THUNDRA_GRADLE_PLUGIN_VERSION}'
+        classpath 'io.thundra.plugin:thundra-gradle-test-plugin:${THUNDRA_GRADLE_PLUGIN_VERSION}'
     }
 }
 
 allprojects {
-    apply plugin: io.thundra.agent.gradle.ThundraTestPlugin
+    apply plugin: io.thundra.plugin.gradle.ThundraTestPlugin
 
     repositories {
         mavenCentral()

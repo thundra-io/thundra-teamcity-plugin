@@ -98,7 +98,7 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
                     new URL(String.format("https://repo.thundra.io/service/local/repositories/thundra-releases" +
                             "/content/io/thundra/agent/thundra-agent-bootstrap/%s/thundra-agent-bootstrap-%s.jar",
                             latestAgentVersion, latestAgentVersion)).openStream());
-            String jarPath = agentDirPath + THUNDRA_AGENT_BOOTSTRAP_JAR;
+            String jarPath = agentDirPath + File.separator + THUNDRA_AGENT_BOOTSTRAP_JAR;
             File file = new File(jarPath);
             Files.copy(agentStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
             this.agentPath = jarPath;

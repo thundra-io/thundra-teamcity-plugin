@@ -13,12 +13,12 @@ public class ThundraUtils {
     public static final String THUNDRA_GRADLE_PLUGIN_VERSION = "THUNDRA_GRADLE_PLUGIN_VERSION";
     public static final String GRADLE_CMD_PARAMS = "ui.gradleRunner.additional.gradle.cmd.params";
     public static final String GRADLE_PLUGIN_METADATA =
-            "https://repo1.maven.org/maven2/io/thundra/agent/thundra-gradle-test-plugin/maven-metadata.xml";
+            "https://repo1.maven.org/maven2/io/thundra/plugin/thundra-gradle-test-plugin/maven-metadata.xml";
     public static final String THUNDRA_AGENT_METADATA =
             "https://repo.thundra.io/service/local/repositories/thundra-releases/content" +
                     "/io/thundra/agent/thundra-agent-bootstrap/maven-metadata.xml";
 
-    public static final String THUNDRA_AGENT_BOOTSTRAP_JAR = "/thundra-agent-bootstrap.jar";
+    public static final String THUNDRA_AGENT_BOOTSTRAP_JAR = "thundra-agent-bootstrap.jar";
     public static final String LATEST = "latest";
     private ThundraUtils(){}
 }

@@ -1,7 +1,7 @@
 package io.thundra.plugin.teamcity.foresight.utils;
 
-import io.thundra.agent.maven.test.instrumentation.checker.FailsafeChecker;
-import io.thundra.agent.maven.test.instrumentation.checker.SurefireChecker;
+import io.thundra.plugin.maven.test.instrumentation.checker.FailsafeChecker;
+import io.thundra.plugin.maven.test.instrumentation.checker.SurefireChecker;
 import jetbrains.buildServer.agent.BuildRunnerContext;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;

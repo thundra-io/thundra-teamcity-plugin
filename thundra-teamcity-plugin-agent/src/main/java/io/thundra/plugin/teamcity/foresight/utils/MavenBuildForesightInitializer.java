@@ -67,9 +67,14 @@ public class MavenBuildForesightInitializer implements IBuildToolForesightInitia
 
     @Override
     public String getAgentPath(BuildRunnerContext runner, String agentPath) {
-        String projectId = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_AGENT_TEST_PROJECT_ID);
-        String apiKey = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_APIKEY);
-        String thundraRestBaseUrl = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_REST_BASE_URL);
+        String apiKey =
+                ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(), THUNDRA_APIKEY);
+        String projectId =
+                ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(),
+                        THUNDRA_AGENT_TEST_PROJECT_ID);
+
+        String thundraRestBaseUrl = ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(),
+                THUNDRA_REST_BASE_URL);
         String restBaseUrlParam = StringUtils.isNotEmpty(thundraRestBaseUrl) ? " -Dthundra.agent.report.rest.baseurl="
                 + thundraRestBaseUrl : "";
         agentPath = agentPath + restBaseUrlParam;

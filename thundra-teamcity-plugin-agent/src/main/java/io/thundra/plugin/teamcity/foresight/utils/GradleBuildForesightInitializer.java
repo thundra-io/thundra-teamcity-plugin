@@ -40,9 +40,11 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
     @Override
     public void initialize(BuildRunnerContext runner, String agentPath) {
         try {
-            String thundraApikey = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_APIKEY);
+            String thundraApikey =
+                    ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(), THUNDRA_APIKEY);
             String projectId =
-                    runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_AGENT_TEST_PROJECT_ID);
+                    ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(),
+                            THUNDRA_AGENT_TEST_PROJECT_ID);
             if (StringUtils.isEmpty(thundraApikey) || StringUtils.isEmpty(projectId)) {
                 return;
             }
@@ -54,9 +56,10 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
             final Configuration cfg = getFreemarkerConfiguration();
 
             final Map<String, String> root = new HashMap<>();
+            String gradleVersionFromEnv = ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(),
+                    THUNDRA_GRADLE_PLUGIN_VERSION);
             root.put(THUNDRA_GRADLE_PLUGIN_VERSION,
-                    runner.getBuildParameters().getEnvironmentVariables().
-                            getOrDefault(THUNDRA_GRADLE_PLUGIN_VERSION, thundraGradlePluginVersion));
+                    StringUtils.isEmpty(gradleVersionFromEnv) ? thundraGradlePluginVersion : gradleVersionFromEnv);
             root.put(THUNDRA_AGENT_PATH, agentPath);
 
             final Template template = cfg.getTemplate(THUNDRAINIT_FTLH);

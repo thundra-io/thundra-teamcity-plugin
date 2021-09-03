@@ -1,6 +1,7 @@
 package io.thundra.plugin.teamcity.foresight;
 
 import io.thundra.plugin.teamcity.foresight.utils.IBuildToolForesightInitializer;
+import io.thundra.plugin.teamcity.foresight.utils.ThundraUtils;
 import jetbrains.buildServer.ExtensionHolder;
 import jetbrains.buildServer.agent.AgentLifeCycleAdapter;
 import jetbrains.buildServer.agent.AgentLifeCycleListener;
@@ -43,9 +44,11 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
 
     @Override
     public void beforeRunnerStart(@NotNull BuildRunnerContext runner) {
-        String thundraApikey = runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_APIKEY);
+        String thundraApikey =
+                ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(), THUNDRA_APIKEY);
         String projectId =
-                runner.getBuildParameters().getEnvironmentVariables().get(THUNDRA_AGENT_TEST_PROJECT_ID);
+                ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(),
+                        THUNDRA_AGENT_TEST_PROJECT_ID);
         if (StringUtils.isEmpty(thundraApikey) || StringUtils.isEmpty(projectId)) {
             return;
         }
@@ -101,7 +104,7 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
             String jarPath = agentDirPath + File.separator + THUNDRA_AGENT_BOOTSTRAP_JAR;
             File file = new File(jarPath);
             Files.copy(agentStream, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            this.agentPath = jarPath;
+            this.agentPath = jarPath.replace("\\","\\\\");
         }
         log.info("Thundra Foresight Instrumentation started");
 

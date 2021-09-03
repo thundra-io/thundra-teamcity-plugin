@@ -1,5 +1,7 @@
 package io.thundra.plugin.teamcity.foresight.utils;
 
+import java.util.Map;
+
 /**
  * @author yusuferdem
  */
@@ -21,4 +23,16 @@ public class ThundraUtils {
     public static final String THUNDRA_AGENT_BOOTSTRAP_JAR = "thundra-agent-bootstrap.jar";
     public static final String LATEST = "latest";
     private ThundraUtils(){}
+
+    public static String getEnvVar(Map<String, String> envVars, String key) {
+        for (Map.Entry<String, String> e : envVars.entrySet()) {
+            String envVarName = e.getKey().trim();
+            String envVarValue = e.getValue().trim();
+            if (key.equalsIgnoreCase(envVarName)) {
+                return envVarValue;
+            }
+
+        }
+        return "";
+    }
 }

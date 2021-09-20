@@ -1,21 +1,25 @@
-# thundra-teamcity-plugin
-This plugin used for change your Maven and Gradle build configurations for send test informations to Thundra Foresight testing observability application.
-## Usage
+# TeamCity
 
-Information about available parameters is listed [below](#parameters). 
+**Thundra Foresight is a tool for debugging and troubleshooting test failures in no time and optimize build duration and performance in your CI pipeline.**
 
-The required parameters are the Thundra API Key and the Thundra Project ID, which can be obtained from [foresight.thundra.io](https://foresight.thundra.io/). 
-You need to add Environment Variables to your Teamcity Project settings or Build Configuration settings. You can access settings screen with this ways,
-- **Click Project Name -> Edit Project Settings -> Parameters -> Add Parameter -> Environment Variables (Recommended)** if you choose this option, all build configurations under this project will send test informations to Thundra Foresight.
-- **Click Build Configuration -> Edit Configuration Settings -> Parameters -> Add Parameter -> Environment Variables**
+You can empower your TeamCity pipeline with Distributed Tracing and  Time-Travel Debugging.
 
-You can learn more about Thundra at [thundra.io](https://thundra.io)
+Foresight's TeamCity Plugin automatically changes your build configurations to integrate with Thundra Foresight.
 
-## Parameters
+You can integrate your TeamCity pipeline in just 2 steps. First, you need to install the plugin. Then, configure your TeamCity Project or Build Configuration. After completing those steps, Foresight will capture your test runs automatically.
 
-| Name                  | Requirement       | Description
-| ---                   | ---               | ---
-| THUNDRA_APIKEY                | Required          | Thundra API Key
-| THUNDRA_AGENT_TEST_PROJECT_ID            | Required          | Your project id from Thundra Foresight. Will be used to filter and classify your testruns.
-| THUNDRA_GRADLE_PLUGIN_VERSION        | Optional          | In the plugin itself, we use a Gradle plugin to run your tests. This plugin is released and versioned separately from the teamcity plugin. Hence, if there is some breaking change or specific version you want to use, you can use it by defining this parameter. You can see all the available version of our plugin [here](https://search.maven.org/artifact/io.thundra.plugin/thundra-agent-gradle-test-instrumentation).
 
+**Prerequisites for TeamCity**
+
+1. [**Thundra Account**](https://start.thundra.io/) to record and manage all the process
+2. [**Foresight project**](https://foresight.docs.thundra.io/core-concepts/creating-a-project/core-concepts/creating-a-project) to gather parameters
+3. `Thundra API Key` to connect your pipeline with the Thundra Java agent. It can be obtained from the [**project settings page**](https://foresight.docs.thundra.io/core-concepts/managing-your-project-settings).
+4. `Thundra Project ID` to connect your test runs with the Foresight project. It can be obtained from the [**project settings page**.](https://foresight.docs.thundra.io/core-concepts/managing-your-project-settings)
+   
+   **Installing Foresight TeamCity Plugin**
+   
+1. Go to the TeamCity Administration | Plugins List page
+2. Download and enable Foresight plugin
+3. Go to your TeamCity Project or Build Configuration and add the `THUNDRA_APIKEY` and `THUNDRA_AGENT_TEST_PROJECT_ID` as environment variables
+   
+   For further information please visit: [https://foresight.docs.thundra.io/integrations/teamcity](https://foresight.docs.thundra.io/integrations/teamcity)

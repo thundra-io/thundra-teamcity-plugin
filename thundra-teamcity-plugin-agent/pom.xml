@@ -4,7 +4,7 @@
     <parent>
         <artifactId>thundra-teamcity-plugin-parent</artifactId>
         <groupId>io.thundra.plugin</groupId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.6-SNAPSHOT</version>
     </parent>
     <artifactId>thundra-teamcity-plugin-agent</artifactId>
     <packaging>jar</packaging>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>io.thundra.plugin</groupId>
             <artifactId>thundra-agent-maven-test-instrumentation</artifactId>
-            <version>0.0.6</version>
+            <version>0.0.7</version>
         </dependency>
 
         <dependency>

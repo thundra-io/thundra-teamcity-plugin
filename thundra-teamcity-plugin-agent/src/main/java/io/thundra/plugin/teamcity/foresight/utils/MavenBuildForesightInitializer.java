@@ -42,6 +42,9 @@ public class MavenBuildForesightInitializer implements IBuildToolForesightInitia
                 logger.error("<Error> pom.xml couldn't find for instrumentation ...");
                 return;
             }
+            String parentPomPath =
+                    ThundraUtils.getEnvVar(runner.getBuildParameters().getEnvironmentVariables(), "THUNDRA_MAVEN_INSTRUMENTATION_PARENT_POM");
+            parentPomPath = parentPomPath != null ? parentPomPath : "./pom.xml";
             MavenXpp3Reader mavenReader = new MavenXpp3Reader();
 
             SurefireChecker surefireChecker = new SurefireChecker();
@@ -59,15 +62,31 @@ public class MavenBuildForesightInitializer implements IBuildToolForesightInitia
                 // Start checking and processing the pom files
                 logger.debug(String.format("<Execute> Checking %s for Surefire plugin", pomFile));
                 // Check for Surefire
-                surefireChecker.checkProfiles(logger, mavenReader, agentPath, pomFile, true);
-                surefireChecker.checkPom(logger, mavenReader, agentPath, pomFile, true);
+                surefireChecker.checkProfiles(logger, mavenReader, agentPath, pomFile, false);
+                surefireChecker.checkPom(logger, mavenReader, agentPath, pomFile, false);
                 surefireInstrumented.set(surefireChecker.instrumented.get() || surefireInstrumented.get());
 
                 logger.debug(String.format("<Execute> Checking %s for Failsafe plugin", pomFile));
                 // Check for Failsafe
-                failsafeChecker.checkProfiles(logger, mavenReader, agentPath, pomFile, true);
-                failsafeChecker.checkPom(logger, mavenReader, agentPath, pomFile, true);
+                failsafeChecker.checkProfiles(logger, mavenReader, agentPath, pomFile, false);
+                failsafeChecker.checkPom(logger, mavenReader, agentPath, pomFile, false);
                 failsafeInstrumented.set(failsafeChecker.instrumented.get() || failsafeInstrumented.get());
+            }
+
+            if (!surefireInstrumented.get()) {
+                logger.info("<Execute> Couldn't find any configuration for Surefire");
+                logger.info("<Execute> Adding Surefire to parent pom manually ...");
+
+                // If we couldn't instrument at all, add surefire plugin to the parent pom,
+                // relative to the current directory (./pom.xml)
+                File parentPom = new File(parentPomPath);
+                if (parentPom.exists() && parentPom.isFile()) {
+                    surefireChecker.checkPom(logger, mavenReader, agentPath, parentPomPath, true);
+                    logger.info("<Execute> Parent pom is instrumented");
+                } else {
+                    logger.warn("<Execute> Couldn't find parent pom at " + parentPomPath);
+                    logger.warn("<Execute> Instrumentation failed");
+                }
             }
 
             logger.info("<Execute> Instrumentation is complete");

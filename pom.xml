@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.thundra.plugin</groupId>
     <artifactId>thundra-teamcity-plugin-parent</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.6-SNAPSHOT</version>
     <name>TeamCity Integration for Thundra Foresight</name>
     <description>
         TeamCity Integration for Thundra Foresight
@@ -32,7 +32,7 @@
     </developers>
 
     <properties>
-        <teamcity-version>2021.1</teamcity-version>
+        <teamcity-version>2021.2</teamcity-version>
         <maven.release.plugin.version>2.5.3</maven.release.plugin.version>
     </properties>
     <repositories>

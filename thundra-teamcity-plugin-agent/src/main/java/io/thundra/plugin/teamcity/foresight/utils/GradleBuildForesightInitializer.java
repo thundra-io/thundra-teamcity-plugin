@@ -86,11 +86,6 @@ public class GradleBuildForesightInitializer implements IBuildToolForesightIniti
         return cfg;
     }
 
-    @Override
-    public String getAgentPath(BuildRunnerContext runner, String agentPath) {
-        return agentPath;
-    }
-
     private String getPluginVersion() throws XMLStreamException, IOException {
         BufferedInputStream in = new BufferedInputStream(new URL(GRADLE_PLUGIN_METADATA).openStream());
         XMLStreamReader reader1 = XMLInputFactory.newInstance().createXMLStreamReader(in);

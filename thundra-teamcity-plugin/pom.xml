@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
     <properties>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-        <teamcity.thundra-teamcity-plugin.plugin.version>1.0.2
+        <teamcity.thundra-teamcity-plugin.plugin.version>1.0.3
         </teamcity.thundra-teamcity-plugin.plugin.version>
         <teamcity.thundra-teamcity-plugin.plugin.vendorName>Thundra</teamcity.thundra-teamcity-plugin.plugin.vendorName>
         <teamcity.thundra-teamcity-plugin.plugin.vendorUrl>https://www.thundra.io/

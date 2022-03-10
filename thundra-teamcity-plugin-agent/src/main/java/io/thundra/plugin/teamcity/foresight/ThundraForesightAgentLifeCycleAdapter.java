@@ -59,7 +59,6 @@ public class ThundraForesightAgentLifeCycleAdapter extends AgentLifeCycleAdapter
                 File workingDirectory = runner.getWorkingDirectory();
                 getThundraAgent(workingDirectory.getAbsolutePath());
 
-                agentPath = (initializer.getAgentPath(runner, agentPath));
                 initializer.initialize(runner, agentPath);
             } catch (IOException | XMLStreamException e) {
                 e.printStackTrace();

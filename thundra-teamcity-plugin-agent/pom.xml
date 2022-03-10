@@ -39,7 +39,7 @@
         <dependency>
             <groupId>io.thundra.plugin</groupId>
             <artifactId>thundra-agent-maven-test-instrumentation</artifactId>
-            <version>0.0.7</version>
+            <version>0.1.1</version>
         </dependency>
 
         <dependency>

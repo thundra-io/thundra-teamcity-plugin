@@ -9,5 +9,4 @@ public interface IBuildToolForesightInitializer {
 
     void initialize(BuildRunnerContext runner, String agentPath);
 
-    String getAgentPath(BuildRunnerContext runner, String agentPath);
 }
